@@ -1,18 +1,24 @@
+
 package com.crio.qcalc;
 
-//import org.springframework.boot.SpringApplication;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
+
 public class QcalcApplication {
 
-	public static void main(String[] args) {
-		
 
-		StandardCalculator calc = new StandardCalculator();
+   public static void main(String[] args) {
 
-		calc.add(1, 2);
- 
-		System.out.println(calc.getResult());
+       StandardCalculator calc = new StandardCalculator();
+
+       calc.add(1, 2);
+
+       System.out.println(calc.getResult());
+
+   }
+
 
 }
