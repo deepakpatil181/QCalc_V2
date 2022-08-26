@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 public class StandardCalculatorTest {
     private StandardCalculator standardCalculator;
@@ -14,13 +15,35 @@ public class StandardCalculatorTest {
     }
 
 
+    @Test
+    @DisplayName("Test Addition Overflow of Two Doubles")
+    void testAdditionOverflowForDoubles(){
+        //Assert
+        Assertions.assertThrows(ArithmeticException.class,new Executable(){
+            @Override
+            public void execute() throws Throwable{
+                standardCalculator.add(Double.MAX_VALUE, Double.MAX_VALUE);
+            }
+        });
+    }
+    @Test
+    @DisplayName("Test Subtraction Overflow of Two Doubles")
+    void testSubtractionOverflowForDoubles(){
+        //Assert
+        Assertions.assertThrows(ArithmeticException.class,new Executable(){
+            @Override
+            public void execute() throws Throwable{
+                standardCalculator.subtract(-Double.MAX_VALUE,Double.MAX_VALUE);
+            }
+        });
+    }
 
     @Test
     @DisplayName("Test Addition of Two Doubles")
     void testAdditionOperationForDoubles(){
-        standardCalculator.add(1.5,2.5);
+        standardCalculator.add(1.0,1.5);
         double actualResult = standardCalculator.getResult();
-        Assertions.assertEquals(4, actualResult);
+        Assertions.assertEquals(2.5, actualResult);
     }
 
     @Test
@@ -47,47 +70,6 @@ public class StandardCalculatorTest {
         double actualResult = standardCalculator.getResult();
         Assertions.assertEquals(0, actualResult);
     }
-    
-@Test
-@DisplayName("Test Multiplication of Two Doubles")
-void testMultiplicationOperationForDoubles(){
-
-        standardCalculator.multiply(2.0,1.0);
-
-        double actualResult = standardCalculator.getResult();
-
-        Assertions.assertEquals(2.0, actualResult);
-}
-
-@Test
-@DisplayName("Test Devesion of Two Doubles")
-void testDevesionOperationForDoubles(){
-
-        standardCalculator.divide(4.4,2);
-
-        double actualResult = standardCalculator.getResult();
-
-        Assertions.assertEquals(2.2, actualResult);
-
-}
-@Test
-@DisplayName("Test Multiplication of Two Integers")
-void testMultiplicationOperation(){
-    standardCalculator.multiply(2,1);
-    double actualResult = standardCalculator.getResult();
-    Assertions.assertEquals(2, actualResult);
-}
-@Test
-@DisplayName("Test Devesion of Two Integers")
-void testDevesionOperation(){
-    standardCalculator.divide(4,2);
-    double actualResult = standardCalculator.getResult();
-    Assertions.assertEquals(2, actualResult);
-}
-
-    
-
-
 
 
 }
