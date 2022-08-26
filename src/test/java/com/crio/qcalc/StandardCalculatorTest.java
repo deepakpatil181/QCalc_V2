@@ -65,8 +65,22 @@ public class StandardCalculatorTest {
 
     @Test
     @DisplayName("Test Substraction of Two Integers")
-    void testSubtractionOperation(){
+    void testMultiplicationOperation(){
         standardCalculator.subtract(2,1);
+        double actualResult = standardCalculator.getResult();
+        Assertions.assertEquals(1, actualResult);
+    }
+    @Test
+    @DisplayName("Test Multiplication of Two Integers")
+    void testDevisionOperation(){
+        standardCalculator.multiply(2,1);
+        double actualResult = standardCalculator.getResult();
+        Assertions.assertEquals(2, actualResult);
+    }
+    @Test
+    @DisplayName("Test Devision of Two Integers")
+    void testSubtractionOperation(){
+        standardCalculator.divide(2,2);
         double actualResult = standardCalculator.getResult();
         Assertions.assertEquals(1, actualResult);
     }

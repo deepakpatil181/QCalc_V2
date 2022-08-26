@@ -146,12 +146,12 @@ public final void subtract(int num1, int num2){
 }
 public final void multiply(int num1, int num2){
 
-    add((double)num1, (double)num2);
+    multiply((double)num1, (double)num2);
 
 }
 public final void divide(int num1, int num2){
 
-    add((double)num1, (double)num2);
+    divide((double)num1, (double)num2);
 
 }
 
