@@ -66,9 +66,9 @@ public class StandardCalculatorTest {
     @Test
     @DisplayName("Test Substraction of Two Integers")
     void testSubtractionOperation(){
-        standardCalculator.subtract(1,1);
+        standardCalculator.subtract(2,1);
         double actualResult = standardCalculator.getResult();
-        Assertions.assertEquals(0, actualResult);
+        Assertions.assertEquals(1, actualResult);
     }
 
 
