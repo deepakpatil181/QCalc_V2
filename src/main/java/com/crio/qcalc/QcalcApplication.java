@@ -19,6 +19,15 @@ public class QcalcApplication {
     
     calc.printResult();
 
+    
+
+   LogicCalculator calcy = new LogicCalculator();
+
+   calcy.AND(8, 6);
+   
+   calcy.printResult();
+   
+
        
 
    }
